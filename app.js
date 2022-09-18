@@ -2,11 +2,27 @@ const root = document.getElementById('root');
 const mujer = document.getElementById('mujer');
 const hombre = document.getElementById('hombre');
 
-//paginador
-let pagina = 1;
+// paginador
 
-const getData = () => {
+const paginaActual = document.querySelector('#pagina-actual')
+const totalPaginas = document.querySelector('#total-paginas')
+const firstPage = document.querySelector('#first-page')
+const previusPage = document.querySelector('#previus-page')
+const nextPage = document.querySelector('#next-page')
+const lastPage = document.querySelector('#last-page')
+
+// loader
+const loader = document.getElementById('contenedor')
+
+
+let pagina = 1;
+let total = 0;
+
+const getData = async () => {
+  loader.classList.remove('esconder')
+  root.classList.add('esconder')
   const url = `https://rickandmortyapi.com/api/character/?page=${pagina}`;
+  // const json = []
   // fetch(url)
   //   .then(resp => resp.json())
   //   .then(json => {
@@ -17,12 +33,22 @@ const getData = () => {
   const resp = await fetch(url)
   const json = await resp.json()
   printData(json.results)
+  total = json.info.pages
+  paginaActual.innerHTML = pagina
+  totalPaginas.innerHTML = total
+  data = json
+  updatePagination();
+  setTimeout(() => {
+    loader.classList.add('esconder')
+    root.classList.remove('esconder')
+  },1000)
+  return json;
 }
 
 let data = [];
 
 const printData = json => {
-  console.log(json) //  []
+  // console.log(json) //  []
   const arr = json;
   let card = '';
   arr.forEach(personaje => {
@@ -50,7 +76,6 @@ const printData = json => {
   });
   root.innerHTML = card;
 }
-console.log(printData)
 
 
 mujer.addEventListener('click', e => {
@@ -59,17 +84,54 @@ mujer.addEventListener('click', e => {
   console.log(data)
 })
 
+// pagination
 
+const pagination = async (promesa) => {
+  const result = await promesa
+  console.log(result)
+  nextPage.addEventListener('click', () => {
+    pagina += 1;
+    getData()
+  })
+  previusPage.addEventListener('click', () => {
+    pagina -= 1;
+    getData();
+  })
+  lastPage.addEventListener('click', () => {
+    if(pagina <= result.info.pages){
+      pagina = result.info.pages
+      getData();
+    }
+  })
+  firstPage.addEventListener('click', () => {
+    if(pagina >= 2){
+      pagina = 1
+      getData();
+    }
+  })
+}
 
-
-
-
-
-
-
+const updatePagination = () =>{
+  if(pagina <= 1){
+    previusPage.disabled = true;
+    firstPage.disabled = true;
+  } else {
+    previusPage.disabled = false;
+    firstPage.disabled = false;
+  }
+  if(pagina == total ){
+    nextPage.disabled = true;
+    lastPage.disabled = true;
+  } else {
+    nextPage.disabled = false;
+    lastPage.disabled = false;
+  }
+}
 
 
 $( document ).ready(function(){
-    $(".dropdown-trigger").dropdown();
-    getData();
-  })
+  $(".dropdown-trigger").dropdown();
+  pagination(getData());
+  pagination()
+  getData()
+})

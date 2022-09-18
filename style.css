@@ -1,23 +1,55 @@
-.color-black{
-    background-color: black;
-  }
-  
-  .card-image:hover img{
-    transform: scale(1.3);
-    transition-duration: .8s;
-    filter: grayscale(90%);
-  }
-  
-  .card-image{
-    overflow: hidden;
-  }
-  
-  .card:hover{
-    box-shadow: 14px 20px 22px -2px rgba(0,0,0,0.66);
-    cursor: pointer;
-  }
+/* //navbar con video */
+body{
+  background-color: #222b32;
+  color: #fff;
+}
+.titulo{
+  font-family: 'Creepster', cursive;
+  background-color: #000;
+  font-size: 135px;
+  text-align: center;
+  font-weight: 400;
+  mix-blend-mode: multiply;
+}
 
-  /* pagination */
+h1{
+  position: relative;
+}
+video{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.color-black{
+  background-color: black !important;
+}
+
+.card-image:hover img{
+  transform: scale(1.3);
+  transition-duration: .8s;
+  filter: grayscale(90%);
+}
+
+.card-image{
+  overflow: hidden;
+}
+
+.card:hover{
+  box-shadow: 14px 20px 22px -2px rgba(0,0,0,0.66);
+  cursor: pointer;
+}
+
+.card-content{
+  height: 24vh;
+  color: #222b32;
+}
+
+/* pagination */
 
 .pagination {
   display: flex;
@@ -45,7 +77,83 @@
   flex-direction: column;
   align-items: center;
 }
-
-.mi-footer{
+footer{
   text-align: center;
+
+}
+.footer-div{
+  align-content: center;
+  display: flex;
+}
+.redes-footer{
+  display: flex;
+}
+.redes-footer li a i{
+  display: block;
+  padding: 15px;
+  background-color: #fff;
+  color:#5c2194;
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  transition: .5s;
+
+}
+.redes-footer i:hover{
+  transform: translatey(-3);
+  transform: scale(1.1);
+  box-shadow: 0 5px 5px 0 rgb(229, 199, 238);
+  border-radius: 50%;
+  background-color: #5c2194;
+  color: #fff;
+}
+/* loader */
+
+.esconder{
+  display: none !important;
+}
+
+.contenedor{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: rotate(45deg);
+  overflow: hidden;
+}
+.loader:after{
+  content: '';
+  position: absolute;
+  inset: 8px;
+  margin: auto;
+  background: #222b32;
+}
+.loader:before{
+  content: '';
+  position: absolute;
+  inset: -15px;
+  margin: auto;
+  background: #de3500;
+  animation: diamondLoader 2s linear infinite;
+}
+@keyframes diamondLoader {
+  0%  ,10% {
+    transform: translate(-64px , -64px) rotate(-45deg)
+  }
+  90% , 100% {
+    transform: translate(0px , 0px) rotate(-45deg)
+  }
 }

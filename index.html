@@ -5,14 +5,18 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-    crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
   <title>Rick and Morty</title>
 </head>
 <body>
+  <div class="video-titulo">
+    <video autoplay muted preload loop src="blob:https://www.youtube.com/9996e9ea-bae4-48ba-895d-3d6d99925628"></video>
+    <h1 class="titulo">Rick and Morty</h1>
+  </div>
 
   <!-- Dropdown Structure -->
 <ul id="dropdown1" class="dropdown-content">
@@ -24,10 +28,10 @@
 </ul>
 <nav>
   <div class="nav-wrapper color-black">
-    <a href="#!" class="brand-logo">Rick and Morty</a>
+    <!-- <a href="#!" class="brand-logo">Rick and Morty</a> -->
     <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
+      <!-- <li><a href="sass.html">Sass</a></li> -->
+      <!-- <li><a href="badges.html">Components</a></li> -->
       <!-- Dropdown Trigger -->
       <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Genero<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
@@ -35,12 +39,17 @@
 </nav>
 
 <div class="container-fluid">
+  <div id="contenedor" class="contenedor">
+    <span class="loader"></span>
+  </div>
   <div id="root" class="row">
   
   </div>
 </div>
+
 <div class="container-paginador">
-  <p>Pagina Actual: <span id="pagina-actual"></span></p> <span>Total de paginas: <span id="total-paginas"></span></span>
+  <p>Pagina Actual: <span id="pagina-actual"></span></p> 
+  <p>Total de paginas: <span id="total-paginas"></span></p>
 </div>
 
   <div class="pagination">
@@ -58,25 +67,49 @@
     </button>
   </div>
 
-<footer class="page-footer color-black mi-footer">
-  <div class="container">
+<footer class="page-footer color-black">
+  <div class="container footer-div">
     <div class="row">
       <div class="col l6 s12">
-        <h5 class="white-text">Footer</h5>
+        <ul class="redes-footer">
+          <li>
+            <a href="https://www.linkedin.com/in/cristinabenitezcb/" target="_BLANK">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>  
+          </li>
+          <li>
+            <a href="mailto:cbenitezc92@gmail.com">
+              <i class="fa-solid fa-envelope-circle-check"></i>
+            </a> 
+          </li>
+          <li>
+            <a href="https://github.com/Crismi22" target="_BLANK">
+              <i class="fa-brands fa-github-alt"></i>
+            </a> 
+          </li>
+          <li>
+            <a href="https://twitter.com/krisminitu" target="_BLANK">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </li>  
+        </ul>
       </div>
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container">
-    © 2022 Copyright Cristina 💀
+    © 2022 Copyright Cristina Benitez 💀
     </div>
   </div>
 </footer>
 
 
   
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="app.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./app.js"></script>
 </body>
 </html>
