@@ -1,6 +1,7 @@
 const root = document.getElementById('root');
 const mujer = document.getElementById('mujer');
 const hombre = document.getElementById('hombre');
+const todos = document.getElementById('todos');
 
 // paginador
 
@@ -54,7 +55,7 @@ const printData = json => {
   arr.forEach(personaje => {
     const {name, gender, species, status, origin, location, image} = personaje;
     card +=`  
-      <div class="col s12 m6 l3">
+      <div class="col s6 m6 l3">
         <div class="card">
           <div class="card-image">
             <img src=${image} alt=${name}>
@@ -81,6 +82,15 @@ const printData = json => {
 mujer.addEventListener('click', e => {
   const female = data.results.filter(personaje => personaje.gender === 'Female');
   printData(female); // []
+  console.log(data)
+})
+hombre.addEventListener('click', e => {
+  const male = data.results.filter(personaje => personaje.gender === 'Male');
+  printData(male); // []
+  console.log(data)
+})
+todos.addEventListener('click', e => {
+  printData(JSON); // []
   console.log(data)
 })
 
