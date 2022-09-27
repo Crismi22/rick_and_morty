@@ -31,15 +31,15 @@ const getData = async () => {
   //     data = json;
   //   })
   //   .catch(err => console.error(err))
-  const resp = await fetch(url)
-  const json = await resp.json()
-  printData(json.results)
+  const resp = await fetch(url)  //con el await lo que hacemos al igual que el .then es esperar la url que retorna el fetch y lo guarda en una const
+  const json = await resp.json() //nos trae la data
+  printData(json.results) 
   total = json.info.pages
   paginaActual.innerHTML = pagina
   totalPaginas.innerHTML = total
   data = json
-  updatePagination();
-  setTimeout(() => {
+  updatePagination(); 
+  setTimeout(() => { //nos da un poco mas de tiempo en cargar la pagina para visualizar el loader.
     loader.classList.add('esconder')
     root.classList.remove('esconder')
   },1000)
@@ -82,23 +82,24 @@ const printData = json => {
 mujer.addEventListener('click', e => {
   const female = data.results.filter(personaje => personaje.gender === 'Female');
   printData(female); // []
-  console.log(data)
+  
 })
 hombre.addEventListener('click', e => {
   const male = data.results.filter(personaje => personaje.gender === 'Male');
   printData(male); // []
-  console.log(data)
+  
 })
 todos.addEventListener('click', e => {
-  printData(JSON); // []
-  console.log(data)
+  const todosResultados = data.results
+  printData(todosResultados); // []
+  
 })
 
 // pagination
-
+//falta una linea de codigo por posible error como con el cath 
 const pagination = async (promesa) => {
   const result = await promesa
-  console.log(result)
+  // console.log(result)
   nextPage.addEventListener('click', () => {
     pagina += 1;
     getData()
@@ -120,7 +121,7 @@ const pagination = async (promesa) => {
     }
   })
 }
-
+//funcion para desabilitar botones de paginador al llegar a la ultima o primera pagina. detecta el cambio de pagina y sabe que boton habilitar o deshabilitar
 const updatePagination = () =>{
   if(pagina <= 1){
     previusPage.disabled = true;
