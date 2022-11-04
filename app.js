@@ -1,4 +1,4 @@
-const root = document.getElementById('root');
+ const root = document.getElementById('root');
 const mujer = document.getElementById('mujer');
 const hombre = document.getElementById('hombre');
 const todos = document.getElementById('todos');
